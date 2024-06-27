@@ -1,0 +1,164 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header .search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.hero {
+    background: url('/images/hero.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+.hero .btn {
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.products, .testimonials, .news {
+    padding: 50px 20px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+
+.products .container, .testimonials .container, .news .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.products h2, .testimonials h2, .news h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.product-list, .testimonial-list, .news-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product, .testimonial, .news-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 22%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product h3, .testimonial p, .news-item h3 {
+    margin-top: 0;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer .footer-links a, footer .social-media a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+footer .social-media img {
+    height: 20px;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 0.5rem;
+}
+
+.card-header {
+    font-weight: 600;
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
