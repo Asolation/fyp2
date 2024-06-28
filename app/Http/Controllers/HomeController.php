@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $news = News::latest()->paginate(5);
+        // Define a mapping of roles to dashboard routes
+        $dashboardRoutes = [
+            'student' => 'student.dashboard',
+            'admin' => 'admin.dashboard',
+        ];
 
-        return view('welcome', ['news' => $news]);
+        return view('welcome', compact('news', 'dashboardRoutes'));
     }
 }

@@ -21,15 +21,15 @@ class UserProgressTableSeeder extends Seeder
             UserProgress::create([
                 'user_id' => $user->id, // Use the dynamically fetched user ID
                 'quiz_id' => 1, // Assuming the ID of the first quiz is 1
-                'quest_id' => 1, // Assuming the ID of the first quest is 1
-                'score' => 10,
+                // 'quest_id' => 1, // Assuming the ID of the first quest is 1
+                'score' => 100, // Assuming the user scored 100 on the first quest of the first quiz
             ]);
 
             UserProgress::create([
                 'user_id' => $user->id, // Use the same user ID for consistency
                 'quiz_id' => 2, // Assuming the ID of the second quiz is 2
-                'quest_id' => 1, // Assuming the ID of the first quest is 1
-                'score' => 20,
+                // 'quest_id' => 1, // Assuming the ID of the first quest is 1
+                'score' => 100, // Assuming the user scored 100 on the first quest of the second quiz
             ]);
         }
 

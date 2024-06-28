@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class OptionRequest extends FormRequest
+class AnswerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class OptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'question_id' => 'required',
-            'option_text' => 'required',
-            'points' => 'nullable'
+            'question_id' => ['required'],
+            'answer_text' => ['required'],
+            'is_correct' => ['required'],
         ];
     }
 }

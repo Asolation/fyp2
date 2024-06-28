@@ -23,17 +23,17 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ request()->is('admin/categories') || request()->is('admin/categories') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
+                <a class="collapse-item {{ request()->is('admin/quizzess') || request()->is('admin/quizzess') ? 'active' : '' }}" href="{{ route('admin.quizzess.index') }}">
                     <i class="fa fa-briefcase mr-2"></i>
-                    {{ __('Category') }}
+                    {{ __('Quizzess') }}
                 </a>
                 <a class="collapse-item {{ request()->is('admin/questions') || request()->is('admin/questions') ? 'active' : '' }}" href="{{ route('admin.questions.index') }}">
                     <i class="fa fa-briefcase mr-2"></i>
-                    {{ __('Question') }}
+                    {{ __('Questions') }}
                 </a>
-                <a class="collapse-item {{ request()->is('admin/options') || request()->is('admin/options') ? 'active' : '' }}" href="{{ route('admin.options.index') }}">
+                <a class="collapse-item {{ request()->is('admin/answers') || request()->is('admin/answers') ? 'active' : '' }}" href="{{ route('admin.answers.index') }}">
                     <i class="fa fa-briefcase mr-2"></i>
-                    {{ __('Option') }}
+                    {{ __('Answers') }}
                 </a>
                 <a class="collapse-item {{ request()->is('admin/results') || request()->is('admin/results') ? 'active' : '' }}" href="{{ route('admin.results.index') }}">
                     <i class="fa fa-briefcase mr-2"></i>

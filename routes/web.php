@@ -43,17 +43,17 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::delete('users_mass_destroy', [\App\Http\Controllers\Admin\UserController::class, 'massDestroy'])->name('users.mass_destroy');
 
-        // categories
-        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class);
-        Route::delete('categories_mass_destroy', [\App\Http\Controllers\Admin\CategoryController::class, 'massDestroy'])->name('categories.mass_destroy');
+        // Quizzes
+        Route::resource('quizzess', \App\Http\Controllers\Admin\QuizController::class);
+        Route::delete('quizzess_mass_destroy', [\App\Http\Controllers\Admin\QuizController::class, 'massDestroy'])->name('quizzess.mass_destroy');
 
         // questions
         Route::resource('questions', \App\Http\Controllers\Admin\QuestionController::class);
         Route::delete('questions_mass_destroy', [\App\Http\Controllers\Admin\QuestionController::class, 'massDestroy'])->name('questions.mass_destroy');
 
-        // options
-        Route::resource('options', \App\Http\Controllers\Admin\OptionController::class);
-        Route::delete('options_mass_destroy', [\App\Http\Controllers\Admin\OptionController::class, 'massDestroy'])->name('options.mass_destroy');
+        // Answers
+        Route::resource('answers', \App\Http\Controllers\Admin\AnswerController::class);
+        Route::delete('answers_mass_destroy', [\App\Http\Controllers\Admin\AnswerController::class, 'massDestroy'])->name('answers.mass_destroy');
 
         // results
         Route::resource('results', \App\Http\Controllers\Admin\ResultController::class);

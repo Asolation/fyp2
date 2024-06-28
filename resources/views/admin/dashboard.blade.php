@@ -1,6 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
+<style>
+    .card:hover {
+        transform: scale(1.02);
+        transition: all .2s ease-in-out;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fc;
+    }
+</style>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -17,121 +27,136 @@
     <!-- Content Row -->
     <div class="row">
         <!-- Users Table -->
-        <div class="col-lg-6">
-            <h3>Users</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($users as $user)
-                    <tr>
-                        <th scope="row">{{ $user->id }}</th>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="col-lg-6 mb-4" data-aos="fade-right">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <h3 class="m-0 font-weight-bold text-primary">Users <i class="fas fa-users"></i></h3>
+                    <table class="table table-responsive-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($users as $user)
+                            <tr>
+                                <th scope="row">{{ $user->id }}</th>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email}}</td>
+                                @foreach($user->roles as $key => $role)
+                                    <td>{{ $role->title }}</td>
+                                @endforeach
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Quizzes Table -->
-        <div class="col-lg-6">
-            <h3>Quizzes</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Questions</th>
-                        <th scope="col">Available</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($quizzes as $quiz)
-                    <tr>
-                        <th scope="row">{{ $quiz->id }}</th>
-                        <td>{{ $quiz->name }}</td>
-                        <td>
-                            @php
-                            $quizQuestions = $questions->where('category_id', $quiz->id)->pluck('question_text')->implode(', ');
-                            @endphp
-                            {{ $quizQuestions }}
-                        </td>
-                        <td>
-                            @php
-                            $isAvailable = $questions->where('category_id', $quiz->id)->first()?->available ?? 0;
-                            @endphp
-                            {{ $isAvailable == 1 ? 'Yes' : 'No' }}
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="col-lg-6 mb-4" data-aos="fade-left">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <h3 class="m-0 font-weight-bold text-primary">Quizzes <i class="fas fa-question-circle"></i></h3>
+                    <table class="table table-responsive-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Questions</th>
+                                <th scope="col">Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($quizzes as $quiz)
+                            <tr>
+                                <th scope="row">{{ $quiz->id }}</th>
+                                <td>{{ $quiz->title }}</td>
+                                <td>
+                                    @php
+                                    $quizQuestions = $questions->where('quiz_id', $quiz->id)->pluck('question_text')->implode('<br>');
+                                    @endphp
+                                    {!! $quizQuestions !!}
+                                </td>
+                                <td>{{ $quiz->is_available == 1 ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
          <!-- Challenges Table -->
-         <div class="col-lg-6">
-            <h3>Challenges</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Difficulty Level</th>
-                        <th scope="col">Points</th>
-                        <th scope="col">Available</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($challenges as $challenge)
-                    <tr>
-                        <th scope="row">{{ $challenge->id }}</th>
-                        <td>{{ $challenge->title }}</td>
-                        <td>{{ $challenge->description }}</td>
-                        <td>{{ $challenge->difficultyLevel }}</td>
-                        <td>{{ $challenge->points }}</td>
-                        <td>{{ $challenge->available ? 'Yes' : 'No' }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+         <div class="col-lg-6 mb-4" data-aos="fade-right">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <h3 class="m-0 font-weight-bold text-primary">Challenges <i class="fas fa-bullseye"></i></h3>
+                    <table class="table table-responsive-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Difficulty Level</th>
+                                <th scope="col">Points</th>
+                                <th scope="col">Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($challenges as $challenge)
+                            <tr>
+                                <th scope="row">{{ $challenge->id }}</th>
+                                <td>{{ $challenge->title }}</td>
+                                <td>{{ $challenge->description }}</td>
+                                <td>{{ $challenge->difficultyLevel }}</td>
+                                <td>{{ $challenge->points }}</td>
+                                <td>{{ $challenge->available ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
          <!-- Simulations Table -->
-        <div class="col-lg-6">
-            <h3>Simulations</h3>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Objective</th>
-                        <th scope="col">Complexity Level</th>
-                        <th scope="col">Points</th>
-                        <th scope="col">Available</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($simulations as $simulation)
-                    <tr>
-                        <th scope="row">{{ $simulation->id }}</th>
-                        <td>{{ $simulation->title }}</td>
-                        <td>{{ $simulation->description }}</td>
-                        <td>{{ $simulation->objective }}</td>
-                        <td>{{ $simulation->complexityLevel }}</td>
-                        <td>{{ $simulation->points }}</td>
-                        <td>{{ $simulation->available ? 'Yes' : 'No' }}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+         <div class="col-lg-6 mb-4" data-aos="fade-right">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <h3 class="m-0 font-weight-bold text-primary">Challenges <i class="fas fa-desktop"></i></h3>
+                    <table class="table table-responsive-sm table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Objective</th>
+                                <th scope="col">Complexity Level</th>
+                                <th scope="col">Points</th>
+                                <th scope="col">Available</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($simulations as $simulation)
+                            <tr>
+                                <th scope="row">{{ $simulation->id }}</th>
+                                <td>{{ $simulation->title }}</td>
+                                <td>{{ $simulation->description }}</td>
+                                <td>{{ $simulation->objective }}</td>
+                                <td>{{ $simulation->complexityLevel }}</td>
+                                <td>{{ $simulation->points }}</td>
+                                <td>{{ $simulation->available ? 'Yes' : 'No' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Graph -->
@@ -142,7 +167,10 @@
     </div>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {

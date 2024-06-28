@@ -4,6 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Sec MMU</title>
+    <style>
+    .news-item {
+        padding: 20px;
+        background-color: #f9f9f9; /* Light grey background, adjust the color as needed */
+        margin-bottom: 20px; /* Adds space between items */
+        border-radius: 5px; /* Optional: adds rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for better separation */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+    }
+
+    .news-item:hover {
+        transform: scale(1.05); /* Slightly increase size */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+
+    .news-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Adds spacing between items in the grid */
+    }
+
+    .news-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px; /* Adds space between the image and the text */
+    }
+
+    .news-item h3 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .news-item p {
+        margin-bottom: 10px;
+    }
+
+    .news-item .news-date {
+        display: block;
+        margin-bottom: 10px;
+        color: #777;
+    }
+
+    .news-item .read-more {
+        display: inline-block;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .news-item .read-more:hover {
+        text-decoration: underline;
+    }
+
+    .fade {
+        transition: opacity 2s ease-out;
+        opacity: 1;
+    }
+    </style>
+
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
@@ -13,6 +72,11 @@
 <body>
     <!-- Header Section -->
     <header>
+        @if(session('error'))
+            <div id="alert" class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="container">
             <div class="logo">
                 <img src="{{ asset('images/MMUlogo.png') }}" alt="MMU Logo">
@@ -49,16 +113,9 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <!-- Dashboard Link -->
-                        @if(Auth::user()->role == 'student')
-                            <a class="dropdown-item" href="{{ route('student.dashboard') }}">
-                                Dashboard
-                            </a>
-                        @elseif(Auth::user()->role == 'admin')
-                            <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
-                                Dashboard
-                            </a>
-                        @endif
-
+                        <a class="dropdown-item" href="{{ route('student.dashboard') }}">
+                            Dashboard
+                        </a>
                         <!-- Logout Link -->
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -178,6 +235,18 @@
             images[currentImageIndex].style.opacity = 0;
             currentImageIndex = (currentImageIndex + 1) % images.length;
             images[currentImageIndex].style.opacity = 1;
+        });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(function() {
+                const alert = document.getElementById('alert');
+                if (alert) {
+                    alert.classList.add('fade');
+                    alert.style.opacity = 0;
+                    // Wait for the fade effect to finish before hiding the element
+                    setTimeout(() => alert.style.display = 'none', 2000); // Match the duration of the fade effect
+                }
+            }, 3000); // 5000 milliseconds = 5 seconds before starting the fade
         });
     </script>
 </body>

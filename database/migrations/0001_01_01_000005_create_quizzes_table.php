@@ -10,11 +10,13 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    { 
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description')->nullable();
+            $table->text('description');
+            $table->integer('time');
+            $table->boolean('is_available')->default(false);
             $table->timestamps();
         });
     }

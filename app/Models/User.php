@@ -51,8 +51,13 @@ class User extends Authenticatable
         return $this->hasOne(Leaderboard::class, 'role_user');
     }
 
-    public function userQuestProgress()
+    public function challenges()
     {
-        return $this->hasMany(UserQuestProgress::class);
+        return $this->belongsToMany(Challenge::class, 'user_challenges')->withPivot('completed')->withTimestamps();
+    }
+
+    public function getPointsAttribute()
+    {
+        return $this->challenges()->wherePivot('completed', true)->sum('points');
     }
 }

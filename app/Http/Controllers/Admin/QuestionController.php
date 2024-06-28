@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Question;
+use App\Models\Quiz;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Admin\QuestionRequest;
-use App\Models\Category;
 
 class QuestionController extends Controller
 {
@@ -21,9 +22,9 @@ class QuestionController extends Controller
 
     public function create(): View
     {
-        $categories = Category::all()->pluck('name', 'id');
+        $quizzess = Quiz::all()->pluck('title', 'id');
 
-        return view('admin.quiz.questions.create', compact('categories'));
+        return view('admin.quiz.questions.create', compact('quizzess'));
     }
 
     public function store(QuestionRequest $request): RedirectResponse
@@ -43,9 +44,9 @@ class QuestionController extends Controller
 
     public function edit(Question $question): View
     {
-        $categories = Category::all()->pluck('name', 'id');
+        $quizzess = Quiz::all()->pluck('name', 'id');
 
-        return view('admin.quiz.questions.edit', compact('question', 'categories'));
+        return view('admin.quiz.questions.edit', compact('question', 'quizzess'));
     }
 
     public function update(QuestionRequest $request, Question $question): RedirectResponse

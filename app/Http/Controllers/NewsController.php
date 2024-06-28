@@ -9,7 +9,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $news = News::latest()->take(5)->get();
+        $news = News::latest()->take(4)->get();
         return view('welcome', ['news' => $news]);
     }
 }

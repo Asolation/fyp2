@@ -24,8 +24,9 @@ class QuestionRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => 'required',
-            'question_text' => 'required'
+            'quiz_id' => 'required',
+            'question_text' => 'required',
+            'points' => 'required',
         ];
     }
 }

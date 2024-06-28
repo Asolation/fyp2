@@ -10,48 +10,50 @@
         <div class="card">
             <div class="card-header py-3 d-flex">
                 <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('option') }}
+                    {{ __('Quiz') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.options.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.quizzess.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
-                        <span class="text">{{ __('New option') }}</span>
+                        <span class="text">{{ __('New Quiz') }}</span>
                     </a>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover datatable datatable-option" cellspacing="0" width="100%">
+                    <table class="table table-bordered table-striped table-hover datatable datatable-quiz" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th width="10">
 
                                 </th>
                                 <th>No</th>
-                                <th>Question</th>
-                                <th>option Text</th>
-                                <th>Point</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Time</th>
+                                <th>Available</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($options as $option)
-                            <tr data-entry-id="{{ $option->id }}">
+                            @forelse($quizzess as $quiz)
+                            <tr data-entry-id="{{ $quiz->id }}">
                                 <td>
 
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $option->question->question_text }}</td>
-                                <td>{{ $option->option_text}}</td>
-                                <td>{{ $option->points}}</td>
+                                <td>{{ $quiz->title }}</td>
+                                <td>{{ $quiz->description }}</td>
+                                <td>{{ $quiz->time }}</td>
+                                <td>{{ $quiz->is_available == 1 ? 'Yes' : 'No' }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
-                                        <a href="{{ route('admin.options.edit', $option->id) }}" class="btn btn-info">
+                                        <a href="{{ route('admin.quizzess.edit', $quiz->id) }}" class="btn btn-info">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.options.destroy', $option->id) }}" method="POST">
+                                        <form onclick="return confirm('are you sure ? ')" class="d-inline" action="{{ route('admin.quizzess.destroy', $quiz->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="btn btn-danger" style="border-top-left-radius: 0;border-bottom-left-radius: 0;">
@@ -83,7 +85,7 @@
         let deleteButtonTrans = 'delete selected'
         let deleteButton = {
             text: deleteButtonTrans,
-            url: "{{ route('admin.options.mass_destroy') }}",
+            url: "{{ route('admin.quizzess.mass_destroy') }}",
             className: 'btn-danger',
             action: function (e, dt, node, config) {
             var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -108,11 +110,11 @@
             order: [[ 1, 'asc' ]],
             pageLength: 50,
         });
-        $('.datatable-option:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+        $('.datatable-quiz:not(.ajaxTable)').DataTable({ buttons: dtButtons })
             $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
                 $($.fn.dataTable.tables(true)).DataTable()
                     .columns.adjust();
             });
-        })
+    })
 </script>
 @endpush

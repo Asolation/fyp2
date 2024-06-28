@@ -19,6 +19,6 @@ class Quest extends Model
 
     public function userQuestProgress()
     {
-        return $this->hasMany(UserQuestProgress::class);
+        return $this->belongsTo(UserQuestProgress::class);
     }
 }

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    
+
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -32,10 +32,14 @@
                         <input type="text" class="form-control" id="question_text" placeholder="{{ __('question text') }}" name="question_text" value="{{ old('question_text') }}" />
                     </div>
                     <div class="form-group">
-                        <label for="category">{{ __('Category') }}</label>
-                        <select class="form-control" name="category_id" id="category">
-                            @foreach($categories as $id => $category)
-                                <option value="{{ $id }}">{{ $category }}</option>
+                        <label for="points">{{ __('Points') }}</label>
+                        <input type="number" class="form-control" id="points" placeholder="{{ __('Points') }}" name="points" value="{{ old('points') }}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz">{{ __('quiz') }}</label>
+                        <select class="form-control" name="quiz_id" id="quiz">
+                            @foreach($quizzess as $id => $quiz)
+                                <option value="{{ $id }}">{{ $quiz }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -43,7 +47,7 @@
                 </form>
             </div>
         </div>
-    
+
 
     <!-- Content Row -->
 

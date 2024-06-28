@@ -10,7 +10,7 @@
                         <h1>{{ $studentName }}</h1>
                         <p>{{ $studentDescription }}</p>
                         <div class="progress-bar">
-                            <div class="progress" style="width: 75%;"></div>
+                            <div class="progress" style="width: {{ $progressPercentage }}%;"></div>
                         </div>
                     </section>
 

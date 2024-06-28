@@ -9,9 +9,7 @@ class UserProgress extends Model
 {
     use HasFactory;
 
-
-
-    protected $fillable = ['user_id', 'quiz_id', 'quest_id', 'score'];
+    protected $fillable = ['user_id', 'quiz_id', 'user_quest_id', 'score'];
 
     public function user()
     {
@@ -23,8 +21,8 @@ class UserProgress extends Model
         return $this->belongsTo(Quiz::class);
     }
 
-    public function questProgress()
+    public function userQuestProgress()
     {
-        return $this->hasOne(QuestProgress::class);
+        return $this->belongsTo(UserQuestProgress::class);
     }
 }

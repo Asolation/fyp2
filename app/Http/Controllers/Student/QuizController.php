@@ -64,7 +64,7 @@ class QuizController extends Controller
 
         if ($userProgress) {
             // Update the existing entry with the new score
-            $userProgress->score = $score;
+            $userProgress->points= $score;
             $userProgress->save();
         } else {
             // Create a new entry if no existing entry was found
@@ -72,7 +72,6 @@ class QuizController extends Controller
                 'user_id' => $userId,
                 'quiz_id' => $quizId,
                 'score' => $score,
-                // Add any other necessary fields
             ]);
         }
 

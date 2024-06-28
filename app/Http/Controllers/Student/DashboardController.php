@@ -20,6 +20,10 @@ class DashboardController extends Controller
             'leaderboard' => Leaderboard::all()
         ];
 
-        return view('student.dashboard', $data);
+        // Assuming you have the authenticated user's points. This might come from the database.
+        $userPoints = auth()->user()->points; // Example: Getting points from the authenticated user
+        $maxPoints = 100; // Define the maximum points possible
+        $progressPercentage = ($userPoints / $maxPoints) * 100; // Calculate the progress percentage
+        return view('student.dashboard', $data, compact('progressPercentage'));
     }
 }

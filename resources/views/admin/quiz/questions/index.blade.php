@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-   
+
 
     <!-- Content Row -->
         <div class="card">
@@ -30,8 +30,9 @@
 
                                 </th>
                                 <th>No</th>
-                                <th>Category</th>
+                                <th>Quiz ID</th>
                                 <th>Question Text</th>
+                                <th>Points</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -42,8 +43,9 @@
 
                                 </td>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $question->category->name }}</td>
+                                <td>{{ $question->quiz->id }}</td>
                                 <td>{{ $question->question_text }}</td>
+                                <td>{{ $question->points }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm">
                                         <a href="{{ route('admin.questions.edit', $question->id) }}" class="btn btn-info">
