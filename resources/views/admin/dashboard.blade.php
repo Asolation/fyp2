@@ -95,7 +95,7 @@
          <div class="col-lg-6 mb-4" data-aos="fade-right">
             <div class="card shadow h-100 py-2">
                 <div class="card-body">
-                    <h3 class="m-0 font-weight-bold text-primary">Challenges <i class="fas fa-bullseye"></i></h3>
+                    <h3 class="m-0 font-weight-bold text-primary">Challenges <i class="fas fa-trophy"></i></h3>
                     <table class="table table-responsive-sm table-striped mt-3">
                         <thead>
                             <tr>
@@ -125,10 +125,10 @@
         </div>
 
          <!-- Simulations Table -->
-         <div class="col-lg-6 mb-4" data-aos="fade-right">
+         <div class="col-lg-6 mb-4" data-aos="fade-left">
             <div class="card shadow h-100 py-2">
                 <div class="card-body">
-                    <h3 class="m-0 font-weight-bold text-primary">Challenges <i class="fas fa-desktop"></i></h3>
+                    <h3 class="m-0 font-weight-bold text-primary">Simulations <i class="fas fa-laptop-code"></i></h3>
                     <table class="table table-responsive-sm table-striped mt-3">
                         <thead>
                             <tr>

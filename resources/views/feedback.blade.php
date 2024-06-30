@@ -9,7 +9,7 @@
                     <h2 class="mb-0">Feedback</h2>
                 </div>
                 <div class="card-body">
-                    <form action="/submit-feedback" method="POST">
+                    <form action="{{route('feedback.store')}}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
@@ -23,11 +23,16 @@
                             <label for="feedback" class="form-label">Feedback</label>
                             <textarea class="form-control" id="feedback" name="feedback" rows="3" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        <button type="submit" class="btn btn-primary w-100">{{ __('Submit') }}</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    @if(session('success'))
+        <div class="alert alert-success" style="margin-top: 20px">
+            {{ session('success') }}
+        </div>
+    @endif
 </div>
 @endsection

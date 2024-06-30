@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Result;
+use App\Models\UserProgress;
 use App\Models\Question;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
@@ -16,14 +16,14 @@ class ResultController extends Controller
     {
         $results = Result::all();
 
-        return view('admin.quiz.results.index', compact('results'));
+        return view('admin.quiz.result.index', compact('results'));
     }
 
     public function create(): View
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
-        return view('admin.quiz.results.create', compact('questions'));
+        return view('admin.quiz.result.create', compact('questions'));
     }
 
     public function store(ResultRequest $request): RedirectResponse
@@ -39,14 +39,14 @@ class ResultController extends Controller
 
     public function show(Result $result): View
     {
-        return view('admin.quiz.results.show', compact('result'));
+        return view('admin.quiz.result.show', compact('result'));
     }
 
     public function edit(Result $result): View
     {
         $questions = Question::all()->pluck('question_text', 'id');
 
-        return view('admin.quiz.results.edit', compact('result', 'questions'));
+        return view('admin.quiz.result.edit', compact('result', 'questions'));
     }
 
     public function update(ResultRequest $request, Result $result): RedirectResponse

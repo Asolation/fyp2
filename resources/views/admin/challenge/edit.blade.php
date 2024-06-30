@@ -41,6 +41,13 @@
                     <label for="points">{{ __('Points') }}</label>
                     <input type="number" class="form-control" id="points" placeholder="{{ __('Points') }}" name="points" value="{{ old('points', $challenge->points) }}" />
                 </div>
+                <div class="form-group">
+                    <label for="available">{{ __('Available') }}</label>
+                    <select class="form-control" name="available" id="available">
+                        <option value="1" {{ old('available', $challenge->available) == 1 ? 'selected' : '' }}>{{ __('Yes') }}</option>
+                        <option value="0" {{ old('available', $challenge->available) == 0 ? 'selected' : '' }}>{{ __('No') }}</option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary btn-block">{{ __('Save')}}</button>
             </form>
         </div>

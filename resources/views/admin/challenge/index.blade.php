@@ -29,6 +29,7 @@
                                 <th>{{ __('Description') }}</th>
                                 <th>{{ __('Difficulty Level') }}</th>
                                 <th>{{ __('Points') }}</th>
+                                <th>{{ __('Available') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -41,6 +42,7 @@
                                     <td>{{ $challenge->description }}</td>
                                     <td>{{ $challenge->difficultyLevel }}</td>
                                     <td>{{ $challenge->points }}</td>
+                                    <td>{{ $challenge->available == 1 ? 'Yes' : 'No' }}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
                                             <a href="{{ route('admin.challenges.edit', $challenge->id) }}" class="btn btn-info">

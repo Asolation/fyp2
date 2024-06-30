@@ -15,7 +15,7 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $quizzes = Quiz::all();
+        $quizzes = Quiz::where('is_available', true)->get();
         return view('student.quiz.list', compact('quizzes'));
     }
 
@@ -54,7 +54,7 @@ class QuizController extends Controller
             // Update the user's score in the `user` table only if score is greater than 0
             $user = User::find($userId);
             // This is an example of setting the latest score, adjust according to your needs
-            $user->points += $score; // Or $user->score += $score; for cumulative
+            $user->points += $score; // Or $user->score += $score; for cumulative score
             $user->save();
         }
     ;
@@ -64,7 +64,7 @@ class QuizController extends Controller
 
         if ($userProgress) {
             // Update the existing entry with the new score
-            $userProgress->points= $score;
+            $userProgress->score += $score;
             $userProgress->save();
         } else {
             // Create a new entry if no existing entry was found

@@ -24,12 +24,13 @@ class SimulationRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'objective' => 'required',
-            'duration' => 'required',
-            'complexityLevel' => 'required',
-            'points' => 'required',
+            'title' => ['required'],
+            'description' => ['required'],
+            'objective' => ['required'],
+            'duration' => ['required'],
+            'complexityLevel' => ['required'],
+            'points' => ['required'],
+            'available' => ['required'],
         ];
     }
 }

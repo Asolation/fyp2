@@ -4,27 +4,26 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\UserProgress;
-use App\Models\Quiz;
-use App\Models\Challenge;
+use App\Models\UserChallengeProgress;
 use App\Models\User;
+use App\Models\Challenge;
 
-class UserProgressTableSeeder extends Seeder
+class UserChallengeProgressSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         // Fetch all users
         $users = User::all();
-        $quizzes = Quiz::all();
+        $challenges = Challenge::all();
 
         foreach ($users as $user) {
-            foreach ($quizzes as $quiz) {
-                UserProgress::create([
+            foreach ($challenges as $challenge) {
+                UserChallengeProgress::create([
                     'user_id' => $user->id, // Use the dynamically fetched user ID
-                    'quiz_id' => $quiz->id,
+                    'challenge_id' => $challenge->id,
                     'score' => 0, // Assuming the user scored 100 on the first quest of the first quiz
                 ]);
             }
@@ -32,7 +31,7 @@ class UserProgressTableSeeder extends Seeder
 
         if ($users->isEmpty()) {
             // Handle the case where no users exist
-            echo "No users found. UserProgress seeds cannot be created.\n";
+            echo "No users found. UserChallengeProgress seeds cannot be created.\n";
         }
     }
 }

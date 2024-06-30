@@ -31,6 +31,7 @@
                             <th>{{ __('Duration') }}</th>
                             <th>{{ __('Complexity Level') }}</th>
                             <th>{{ __('Points') }}</th>
+                            <th>{{ __('Available') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>
                     </thead>
@@ -45,6 +46,7 @@
                             <td>{{ $simulation->duration }}</td>
                             <td>{{ $simulation->complexityLevel }}</td>
                             <td>{{ $simulation->points }}</td>
+                            <td>{{ $simulation->available == 1 ? 'Yes' : 'No' }}</td>
                             <td>
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ route('admin.simulations.edit', $simulation->id) }}" class="btn btn-info">

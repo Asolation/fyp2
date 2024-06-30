@@ -1,7 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<style>
+    .login {
+        margin-top: 200px; /* Adjusted for better positioning */
+    }
+    .card {
+        border: none;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    }
+    .card-header {
+        background-color: #4a69bd; /* Vibrant header color */
+        color: #fff;
+        font-size: 24px;
+        border-top-left-radius: 10px; /* Rounded corners */
+        border-top-right-radius: 10px; /* Rounded corners */
+        text-align: center;
+    }
+    .form-control {
+        border-radius: 20px; /* Rounded input fields */
+        border: 1px solid #ced4da;
+        padding: 10px;
+    }
+    .btn-primary {
+        background-color: #4a69bd; /* Matching button color */
+        border: none;
+        border-radius: 20px; /* Rounded button */
+        padding: 10px 30px;
+        font-size: 16px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-primary:hover {
+        background-color: #3c6382; /* Button hover effect */
+    }
+    .btn-link {
+        color: #4a69bd; /* Style for the forgot password link */
+    }
+    .btn-link:hover {
+        color: #3c6382; /* Hover effect for the link */
+    }
+</style>
+<div class="container login">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

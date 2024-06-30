@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Leaderboard;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 class LeaderboardsTableSeeder extends Seeder
@@ -13,18 +15,20 @@ class LeaderboardsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Get the IDs of users with role_id of 2
-        $userIds = DB::table('role_user')->where('role_id', 2)->pluck('user_id');
+        // Assuming 'user' role exists
+        $userRoleId = Role::where('title', 'user')->first()->id;
 
-        // Get the users with those IDs
-        $users = User::whereIn('id', $userIds)->get();
+        // Fetch users with 'user' role
+        $users = User::whereHas('roles', function ($query) use ($userRoleId) {
+            $query->where('roles.id', '=', $userRoleId);
+        })->get();
 
-        // Loop through the users and do your seeding
-        foreach ($users as $user) {
-            DB::table('leaderboards')->insert([
-                'user_id' => $user->id,
-                'points' => rand(1, 100), // Replace with your logic for points
-            ]);
-        }
+        // Create leaderboard entries for users with 'user' role
+        $users->each(function ($user) {
+            Leaderboard::firstOrCreate(
+                ['user_id' => $user->id],
+                ['points' => $user->points ?? 0]
+            );
+        });
     }
 }

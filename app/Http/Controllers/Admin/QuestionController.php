@@ -45,7 +45,6 @@ class QuestionController extends Controller
     public function edit(Question $question): View
     {
         $quizzess = Quiz::all()->pluck('name', 'id');
-
         return view('admin.quiz.questions.edit', compact('question', 'quizzess'));
     }
 

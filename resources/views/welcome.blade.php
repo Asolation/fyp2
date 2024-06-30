@@ -4,67 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cyber Sec MMU</title>
-    <style>
-    .news-item {
-        padding: 20px;
-        background-color: #f9f9f9; /* Light grey background, adjust the color as needed */
-        margin-bottom: 20px; /* Adds space between items */
-        border-radius: 5px; /* Optional: adds rounded corners */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for better separation */
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
-    }
-
-    .news-item:hover {
-        transform: scale(1.05); /* Slightly increase size */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    }
-
-    .news-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* Adds spacing between items in the grid */
-    }
-
-    .news-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-        margin-bottom: 10px; /* Adds space between the image and the text */
-    }
-
-    .news-item h3 {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    .news-item p {
-        margin-bottom: 10px;
-    }
-
-    .news-item .news-date {
-        display: block;
-        margin-bottom: 10px;
-        color: #777;
-    }
-
-    .news-item .read-more {
-        display: inline-block;
-        color: #007bff;
-        text-decoration: none;
-    }
-
-    .news-item .read-more:hover {
-        text-decoration: underline;
-    }
-
-    .fade {
-        transition: opacity 2s ease-out;
-        opacity: 1;
-    }
-    </style>
-
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -72,14 +14,9 @@
 <body>
     <!-- Header Section -->
     <header>
-        @if(session('error'))
-            <div id="alert" class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
         <div class="container">
             <div class="logo">
-                <img src="{{ asset('images/MMUlogo.png') }}" alt="MMU Logo">
+                <img src="{{ asset('images/logo.webp') }}" alt="Logo">
             </div>
             <nav>
                 <ul class="">
@@ -95,11 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('student.simulation') }}">Simulations</a>
                     </li>
+
                 </ul>
             </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
@@ -146,11 +81,11 @@
             </div>
             <button id="nextButton">Next Image</button>
         </section>
-
         <!-- Product Features Section -->
         <section class="products">
             <div class="container">
                 <h2>Our Products</h2>
+                <hr>
                 <div class="product-list">
                     <div class="product">
                         <img class="image-placeholder" src="{{ asset('images/CYBER-SECURITY-QUIZ.jpeg') }}" alt="Security Quiz Pack">
@@ -170,7 +105,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Testimonials Section -->
         <section class="testimonials">
             <div class="container">
@@ -188,7 +122,6 @@
                 </div>
             </div>
         </section>
-
         <!-- News Section -->
         <section class="news">
             <div class="container">
@@ -212,10 +145,7 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
                 <a href="feedback">Feedback</a>
-                <a href="#">Support</a>
             </div>
             <div class="social-media">
                 <a href="https://x.com/home"><img src="{{ asset('images/x-logo-png.webp') }}" alt="Twitter"></a>
@@ -225,7 +155,21 @@
             </div>
         </div>
     </footer>
-
+    <style>
+        section::after {
+            content: "";
+            display: block;
+            height: 1px;
+            background-color: #ccc; /* Light grey line */
+            margin: 20px auto; /* Centers the line and adds space above and below */
+            width: 80%; /* Adjusts the width of the line */
+        }
+        hr{
+            margin: 20px auto;
+            width: 30%;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+    </style>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
         var currentImageIndex = 0;
@@ -248,6 +192,26 @@
                 }
             }, 3000); // 5000 milliseconds = 5 seconds before starting the fade
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+        // Select all links with hashes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Find the target element
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                // Scroll to the target element
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>

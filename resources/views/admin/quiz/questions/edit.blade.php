@@ -30,6 +30,7 @@
                     <div class="form-group">
                         <label>{{ __('Belongs to Quiz') }}:</label>
                         <input type="text" class="form-control" value="{{ $question->quiz->title }}" disabled />
+                        <input type="hidden" name="quiz_id" value="{{ $question->quiz_id }}" />
                     </div>
                     <div class="form-group">
                         <label for="question_text">{{ __('Question text') }}</label>

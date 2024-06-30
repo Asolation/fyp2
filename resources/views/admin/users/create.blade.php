@@ -19,7 +19,7 @@
         <div class="card shadow">
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">{{ __('create user') }}</h1>
+                    <h1 class="h3 mb-0 text-gray-800">{{ __('Create User') }}</h1>
                     <a href="{{ route('admin.users.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Go Back') }}</a>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 </form>
             </div>
         </div>
-    
+
 
     <!-- Content Row -->
 

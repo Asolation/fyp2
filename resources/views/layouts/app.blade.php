@@ -13,6 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     <!-- Scripts -->
@@ -23,7 +24,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="{{ asset('images/MMUlogo.png') }}" alt="KnowBe4 Logo">
+                <img src="{{ asset('images/logo.webp') }}" alt="KnowBe4 Logo">
             </div>
             <nav>
                 <ul>
@@ -41,9 +42,6 @@
                     </li>
                 </ul>
             </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-            </div>
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
@@ -84,15 +82,12 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
                 <a href="feedback">Feedback</a>
-                <a href="#">Support</a>
             </div>
             <div class="social-media">
-                <a href="https://x.com/home"><img src="{{ asset('images/x-logo-png.webp') }}" alt="Twitter">Twitter</a>
-                <a href="https://www.facebook.com/"><img src="{{ asset('images/facebook.jpg') }}" alt="Facebook">Facebook</a>
-                <a href="https://www.linkedin.com/"><img src="{{ asset('images/linkdin.png') }}" alt="LinkedIn">LinkedIn</a>
+                <a href="https://x.com/home"><img src="{{ asset('images/x-logo-png.webp') }}" alt="Twitter"></a>
+                <a href="https://www.facebook.com/"><img src="{{ asset('images/facebook.jpg') }}" alt="Facebook"></a>
+                <a href="https://www.linkedin.com/"><img src="{{ asset('images/linkdin.png') }}" alt="LinkedIn"></a>
                 <a href="#"><img src="{{ asset('images/youtube.png') }}" alt="YouTube"></a>
             </div>
         </div>

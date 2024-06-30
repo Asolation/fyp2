@@ -39,17 +39,20 @@ class AnswerController extends Controller
         return view('admin.quiz.answer.show', compact('answer'));
     }
 
-    public function edit($id): View
+    public function edit(Answer $answer): View
     {
-        $answer = Answer::findOrFail($id);
-        return view('admin.quiz.answer.edit', compact('answer'));
+        $questions = Question::all()->pluck('question_text', 'id');
+        return view('admin.quiz.answer.edit', compact('answer' , 'questions'));
     }
 
-    public function update(AnswerRequest $request, $id)
+    public function update(AnswerRequest $request, Answer $answer): RedirectResponse
     {
-        $answer = answer::findOrFail($id);
-        $answer->update($request->all());
-        return redirect()->route('admin.answers.index')->with('success', 'Answer updated successfully');
+        $answer->update($request->validated());
+
+        return redirect()->route('admin.answers.index')->with([
+            'message' => 'successfully updated !',
+            'alert-type' => 'info'
+        ]);
     }
 
     public function destroy(Answer $answer): RedirectResponse

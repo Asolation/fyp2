@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserProgress extends Model
+class UserChallengeProgress extends Model
 {
     use HasFactory;
 
@@ -16,8 +16,8 @@ class UserProgress extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function quiz()
+    public function challenge()
     {
-        return $this->belongsTo(Quiz::class);
+        return $this->belongsTo(Challenge::class);
     }
 }

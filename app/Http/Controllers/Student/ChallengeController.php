@@ -10,7 +10,7 @@ class ChallengeController extends Controller
 {
     public function index()
     {
-        $challenges = Challenge::all();
+        $challenges = Challenge::where('available', true)->get();
         return view('student.challenge.list', compact('challenges'));
     }
 

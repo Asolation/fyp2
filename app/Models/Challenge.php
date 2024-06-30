@@ -9,10 +9,7 @@ class Challenge extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'difficultyLevel', 'points', 'is_active'];
+    protected $fillable = ['title', 'description', 'difficultyLevel', 'points', 'available'];
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_challenges')->withPivot('completed')->withTimestamps();
-    }
+
 }

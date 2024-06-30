@@ -3,15 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\NewsController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function() {
-
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
     // student only
     Route::get('dashboard', [App\Http\Controllers\Student\DashboardController::class, 'showDashboard'])->name('student.dashboard');
-    Route::get('feedback', [App\Http\Controllers\Student\FeedbackController::class, 'index'])->name('feedback');
         //Simulations
         Route::get('simulation', [App\Http\Controllers\Student\SimulationController::class, 'index'])->name('student.simulation');
 
@@ -27,11 +23,19 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('challenges', [App\Http\Controllers\Student\ChallengeController::class, 'index'])->name('student.challenges');
         Route::get('password-game', [App\Http\Controllers\Student\PasswordGameController::class, 'index'])->name('student.challenges.password-game');
         Route::post('password-game/check', [App\Http\Controllers\Student\PasswordGameController::class, 'check']);
+        Route::get('password-game/success', [App\Http\Controllers\Student\PasswordGameController::class, 'success'])->name('student.challenges.password-game.success');
 
         //Quests
         Route::get('quests', [App\Http\Controllers\Student\QuestController::class, 'index'])->name('quests.index');
         Route::get('quests/{quest}', [App\Http\Controllers\Student\QuestController::class, 'show'])->name('quests.show');
         Route::post('quests/{quest}/complete', [App\Http\Controllers\Student\QuestController::class, 'complete'])->name('quests.complete');
+
+        //Feedback
+        Route::get('feedback', [App\Http\Controllers\Student\FeedbackController::class, 'index'])->name('feedback');
+        Route::post('feedback', [App\Http\Controllers\Student\FeedbackController::class, 'store'])->name('feedback.store');
+
+        //Leaderboard
+        Route::get('leaderboard', [App\Http\Controllers\LeaderboardController::class, 'index'])->name('leaderboard');
 
     // admin only
     Route::group(['middleware' => 'isAdmin','prefix' => 'admin', 'as' => 'admin.'], function() {
@@ -47,7 +51,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('quizzess', \App\Http\Controllers\Admin\QuizController::class);
         Route::delete('quizzess_mass_destroy', [\App\Http\Controllers\Admin\QuizController::class, 'massDestroy'])->name('quizzess.mass_destroy');
 
-        // questions
+        // Questions
         Route::resource('questions', \App\Http\Controllers\Admin\QuestionController::class);
         Route::delete('questions_mass_destroy', [\App\Http\Controllers\Admin\QuestionController::class, 'massDestroy'])->name('questions.mass_destroy');
 
@@ -55,7 +59,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::resource('answers', \App\Http\Controllers\Admin\AnswerController::class);
         Route::delete('answers_mass_destroy', [\App\Http\Controllers\Admin\AnswerController::class, 'massDestroy'])->name('answers.mass_destroy');
 
-        // results
+        // Results
         Route::resource('results', \App\Http\Controllers\Admin\ResultController::class);
         Route::delete('results_mass_destroy', [\App\Http\Controllers\Admin\ResultController::class, 'massDestroy'])->name('results.mass_destroy');
 

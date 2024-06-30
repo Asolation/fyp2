@@ -23,7 +23,8 @@ class ChallengeController extends Controller
 
     public function store(ChallengeRequest $request): RedirectResponse
     {
-        $challenge = Challenge::create($request->all());
+        Challenge::create($request->validated());
+        
         return redirect()->route('admin.challenges.index')->with([
             'message' => 'Challenge successfully created!',
             'alert-type' => 'success'

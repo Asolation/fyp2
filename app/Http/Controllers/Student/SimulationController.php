@@ -13,6 +13,7 @@ class SimulationController extends Controller
 {
     public function index()
     {
-        return view('student.simulation.list' , ['simulations' => Simulation::all()]);
+
+        return view('student.simulation.list' , ['simulations' => Simulation::where('available', true)->get()]);
     }
 }

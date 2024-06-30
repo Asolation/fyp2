@@ -24,10 +24,11 @@ class ChallengeRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'description' => 'required',
-            'difficultyLevel' => 'required',
-            'points' => 'required',
+            'title' => ['required'],
+            'description' => ['required'],
+            'difficultyLevel' => ['required'],
+            'points' => ['required'],
+            'available' => ['required'],
         ];
     }
 }

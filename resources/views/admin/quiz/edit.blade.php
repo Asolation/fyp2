@@ -40,9 +40,9 @@
                     </div>
                     <div class="form-group">
                         <label for="available">{{ __('Available') }}</label>
-                        <select class="form-control" name="is_available" id="available" value="{{ old('is_available+-', $quiz->is_available) }}">
-                            <option value="1">{{ __('Yes') }}</option>
-                            <option value="0">{{ __('No') }}</option>
+                        <select class="form-control" name="is_available" id="available">
+                            <option value="1" {{ old('available', $quiz->is_available) == 1 ? 'selected' : '' }}>{{ __('Yes') }}</option>
+                            <option value="0" {{ old('available', $quiz->is_available) == 0 ? 'selected' : '' }}>{{ __('No') }}</option>
                         </select>
                     </div>
                     <!-- Continue with the rest of the form -->

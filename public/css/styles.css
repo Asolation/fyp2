@@ -59,7 +59,7 @@ main {
 }
 
 .welcome-section {
-    background-color: #34495e;
+    background-color: #16213e;
     color: white;
     text-align: center;
     padding: 70px 20px;
@@ -267,27 +267,6 @@ hr {
     color: #ecf0f1 !important;
 }
 
-@media (max-width: 992px) {
-    .navbar .logo-center {
-        position: sticky;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .nav-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nav-item-dash{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-}
-
 .nav-link:hover{
     color: #3498db !important;
 }
@@ -302,4 +281,104 @@ hr {
 {
     height: 50px;
     width: 50px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    padding: 1rem;
+}
+.card-body {
+    background-color: #f8f9fa;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.img-fluid {
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* General styles are already defined above */
+
+/* Step 1: General Mobile Adjustments */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block; /* Show burger menu */
+    }
+
+    nav ul {
+        display: none; /* Hide navigation menu */
+        position: absolute;
+        width: 100%;
+        background-color: #fff; /* Adjust based on your design */
+    }
+
+    nav ul.show {
+        display: block; /* Show navigation menu when burger menu is clicked */
+    }
+
+    .categories-section, .contactUs-section {
+        flex-direction: column;
+    }
+
+    .category-card, .contact-form {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .main-image-placeholder {
+        height: 300px; /* Adjust main image placeholder for smaller screens */
+    }
+
+    nav .logo, .category-card h3, .contact-form label {
+        font-size: smaller; /* Adjust font size for readability */
+    }
+}
+
+/* Step 2: Very Small Devices */
+@media (max-width: 425px) {
+    nav ul {
+        gap: 5px;
+    }
+
+    .welcome-section, .categories-section, .contactUs-section {
+        padding: 40px 10px; /* Reduce padding */
+    }
+
+    .main-image-placeholder {
+        height: 200px; /* Further adjust for very small screens */
+    }
+
+    .category-card, .contact-form {
+        width: 100%; /* Use full width for very small screens */
+    }
+
+    .category-card h3, .contact-form label {
+        font-size: smaller; /* Further reduce font size for better readability */
+    }
 }

@@ -43,21 +43,34 @@ class User extends Authenticatable
     ];
 
     public function roles() {
-        return $this->belongsToMany(Role::class, 'role_user');
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     public function leaderboard()
     {
-        return $this->hasOne(Leaderboard::class, 'role_user');
+        return $this->hasOne(Leaderboard::class);
     }
 
-    public function challenges()
+    protected static function booted()
     {
-        return $this->belongsToMany(Challenge::class, 'user_challenges')->withPivot('completed')->withTimestamps();
-    }
+        static::saved(function ($user) {
+            if ($user->isDirty('points')) { // Check if 'points' attribute was updated
+                // Update or create leaderboard entry based only on user_id
+                $leaderboard = $user->leaderboard()->firstOrCreate(
+                    ['user_id' => $user->id], // Attributes to match
+                    ['points' => 0] // Attributes to set if creating a new entry
+                );
 
-    public function getPointsAttribute()
-    {
-        return $this->challenges()->wherePivot('completed', true)->sum('points');
+                $leaderboard->points = $user->points; // Update points
+                $leaderboard->save();
+            }
+        });
+
+        static::created(function ($user) {
+            // Ensure a leaderboard entry is created for every new user
+            $user->leaderboard()->create([
+                'points' => 0, // Initialize points, adjust as necessary
+            ]);
+        });
     }
 }
