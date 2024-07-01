@@ -123,7 +123,7 @@
                         </div>
                     </section>
 
-                    <section class="badges">
+                    {{-- <section class="badges">
                         @foreach ($badges as $badge)
                             <div class="badge">
                                 <h2>{{ $badge->title }}</h2>
@@ -131,7 +131,7 @@
                                 <a href="" class="btnCont">View Badge</a>
                             </div>
                         @endforeach
-                    </section>
+                    </section> --}}
 
                     <section class="leaderboard">
                         <h2>Leaderboard</h2>

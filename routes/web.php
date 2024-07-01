@@ -42,8 +42,6 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard.index');
 
         // users
-        Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
-        Route::delete('roles_mass_destroy', [\App\Http\Controllers\Admin\RoleController::class, 'massDestroy'])->name('roles.mass_destroy');
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::delete('users_mass_destroy', [\App\Http\Controllers\Admin\UserController::class, 'massDestroy'])->name('users.mass_destroy');
 
