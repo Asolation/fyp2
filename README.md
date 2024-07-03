@@ -4,8 +4,8 @@ Ensure you have Composer and Laragon installed on your computer. This system was
 
 ### Setting up Laragon with PHP 8.3.6 or Above
 
-1. Download Laragon from the [official website](https://laragon.org/download/index.html) and install it.
-2. After installation, open Laragon and go to **Menu > Tools > Quick Add > PHP** and select PHP 8.3.6 or above.
+1. Download Laragon(the full version) from the [official website](https://laragon.org/download/index.html) and install it.
+2. After installation, open Laragon and right click anywhere on the laragon app and go to **Menu > Tools > Quick Add > PHP** and select PHP 8.3.6 or above when you have put the unzip php file in the directory.
 3. Restart Laragon to apply the changes.
 
 These instructions assume that you are familiar with running a Laravel project.
