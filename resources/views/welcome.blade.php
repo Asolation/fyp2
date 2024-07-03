@@ -125,7 +125,7 @@
         <!-- News Section -->
         <section class="news">
             <div class="container">
-                <h2>Latest Insights</h2>
+                <h2 class="text-white">Latest Insights</h2>
                 <div class="news-list">
                     @foreach ($news as $index => $newsItem)
                         <div class="news-item">
@@ -133,7 +133,7 @@
                             <h3>{{ $newsItem->title }}</h3>
                             <p>{{ $newsItem->description }}</p>
                             <span class="news-date">Published on: {{ $newsItem->published_at ? \Carbon\Carbon::parse($newsItem->published_at)->format('Y-m-d') : 'N/A' }}</span>
-                            <a href="/news/{{ $newsItem->slug }}" class="read-more">Read More</a>
+                            <a href="{{ $newsItem->slug }}" class="read-more">Read More</a>
                         </div>
                     @endforeach
                 </div>
