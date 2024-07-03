@@ -1,8 +1,9 @@
 ## Installation
 
-Ensure you have Composer installed on your computer. This system was developed and tested on a Windows 10 platform.
+Ensure you have Composer and laragon installed on your computer. This system was developed and tested on a Windows 10 platform.
+Ensure also you have php8.3.6 or above from https://windows.php.net/download#php-8.3
 
-These instructions assume that you are familiar with running a Vue/Laravel project.
+These instructions assume that you are familiar with running a Laravel project.
 
 1. Copy `.env.example` to `.env`. The `.env.example` file is automatically created by Composer when initializing a Laravel project.
 2. Set the `DB_` environment variables in the `.env` file to match your database settings.
