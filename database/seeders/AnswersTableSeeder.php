@@ -185,11 +185,11 @@ class AnswersTableSeeder extends Seeder
                 ['text' => 'To encrypt data', 'is_correct' => false],
                 ['text' => 'To filter network traffic', 'is_correct' => false],
             ],
-            'Tailgating is also termed as _________' => [
-                ['text' => 'Piggybacking', 'is_correct' => true],
-                ['text' => 'Phishing', 'is_correct' => false],
-                ['text' => 'Baiting', 'is_correct' => false],
-                ['text' => 'Vishing', 'is_correct' => false],
+            'What is a DDoS attack?' => [
+                ['text' => 'An attack where multiple systems overwhelm a target', 'is_correct' => true],
+                ['text' => 'A method of data encryption', 'is_correct' => false],
+                ['text' => 'A type of firewall', 'is_correct' => false],
+                ['text' => 'A network performance test', 'is_correct' => false],
             ],
             'What is a DDoS attack?' => [
                 ['text' => 'An attack where multiple systems overwhelm a target', 'is_correct' => true],
@@ -269,11 +269,11 @@ class AnswersTableSeeder extends Seeder
                 ['text' => 'There is no difference', 'is_correct' => false],
                 ['text' => 'White hat hackers have malicious intent, while black hat hackers are authorized to find vulnerabilities', 'is_correct' => false],
             ],
-            'What is social engineering?' => [
-                ['text' => 'Manipulating people into divulging confidential information', 'is_correct' => true],
-                ['text' => 'Using software to hack into systems', 'is_correct' => false],
-                ['text' => 'Encrypting data to protect it', 'is_correct' => false],
-                ['text' => 'Testing system vulnerabilities', 'is_correct' => false],
+            'Tailgating is also termed as _________' => [
+                ['text' => 'Piggybacking', 'is_correct' => true],
+                ['text' => 'Phishing', 'is_correct' => false],
+                ['text' => 'Baiting', 'is_correct' => false],
+                ['text' => 'Vishing', 'is_correct' => false],
             ],
             'What is a vulnerability assessment?' => [
                 ['text' => 'A systematic review of security weaknesses in an information system', 'is_correct' => true],
