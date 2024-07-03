@@ -1,6 +1,8 @@
 ## Installation
 
 Ensure you have Composer and Laragon installed on your computer. This system was developed and tested on a Windows 10 platform. Ensure also you have PHP 8.3.6 or above from [here](https://windows.php.net/download#php-8.3)(make sure you choose the thread safe version and zip file).
+![image](https://github.com/Asolation/fyp2/assets/61383335/4e3638c8-4340-4998-bc3f-56a34489b44c)
+
 ![image](https://github.com/Asolation/fyp2/assets/61383335/96002c62-a5c6-4a3a-b0c8-7229d022b772)
 
 
