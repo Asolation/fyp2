@@ -74,9 +74,9 @@
             <h1>Welcome to the Cybersecurity Awareness Platform</h1>
             <div class="main-image-placeholder">
                 <div class="image-rotator">
-                    <img class="rotating-image" src="{{ asset('images/image1.jpeg') }}" alt="Image 1">
-                    <img class="rotating-image" src="{{ asset('images/image2.jpeg') }}" alt="Image 2">
-                    <img class="rotating-image" src="{{ asset('images/image3.jpeg') }}" alt="Image 3">
+                    <img class="rotating-image" src="{{ asset('images/poster1.jpg') }}" alt="Image 1">
+                    <img class="rotating-image" src="{{ asset('images/poster2.jpg') }}" alt="Image 2">
+                    <img class="rotating-image" src="{{ asset('images/poster3.png') }}" alt="Image 3">
                 </div>
             </div>
             <button id="nextButton">Next Image</button>
