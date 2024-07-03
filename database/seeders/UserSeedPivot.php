@@ -22,7 +22,12 @@ class UserSeedPivot extends Seeder
             2 => [
                 'roles' => [2],
             ],
-
+            3 => [
+                'roles' => [2],
+            ],
+            4 => [
+                'roles' => [2],
+            ],
         ];
 
         foreach ($roles as $id => $role) {

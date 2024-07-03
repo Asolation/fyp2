@@ -13,80 +13,90 @@ class QuestionsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Questions for Cybersecurity Basics
-        Question::create([
-            'quiz_id' => 1, // Cybersecurity Basics
-            'question_text' => 'What is the most common form of cyber attack?',
-            'points' => 10,
-        ]);
-
-        Question::create([
-            'quiz_id' => 1,
-            'question_text' => 'What does VPN stand for?',
-            'points' => 10,
-        ]);
-
-        Question::create([
-            'quiz_id' => 1,
-            'question_text' => 'What is phishing?',
-            'points' => 10,
-        ]);
+        $questions_1 = [
+            'What is the most common form of cyber attack?',
+            'What does VPN stand for?',
+            'What is phishing?',
+            'What is the primary purpose of a firewall?',
+            'Which of the following is considered a strong password?',
+            'What is the principle of least privilege?',
+            'Which of the following is a common type of phishing attack?',
+            'What is the main function of antivirus software?',
+            'Which of the following best describes "ransomware"?',
+            'What is "two-factor authentication" (2FA)?',
+        ];
+        foreach($questions_1 as $question) {
+            Question::create([
+                'quiz_id' => 1, // Cybersecurity Basics
+                'question_text' => $question,
+                'points' => 10,
+            ]);
+        }
 
         // Questions for Advanced Cybersecurity
-        Question::create([
-            'quiz_id' => 2, // Advanced Cybersecurity
-            'question_text' => 'What is a zero-day vulnerability?',
-            'points' => 10,
-        ]);
+        $questions_2 = [
+            'What is a zero-day vulnerability?',
+            'What is the purpose of a firewall?',
+            'What is penetration testing?',
+            'What is social engineering?',
+            'What is multi-factor authentication?',
+            'What is a Distributed Denial of Service (DDoS) attack?',
+            'What is the role of encryption in cybersecurity?',
+            'What is a security incident response plan?',
+            'What is the difference between symmetric and asymmetric encryption?',
+            'What is a honeypot in cybersecurity?'
+        ];
 
-        Question::create([
-            'quiz_id' => 2,
-            'question_text' => 'What is the purpose of a firewall?',
-            'points' => 10,
-        ]);
-
-        Question::create([
-            'quiz_id' => 2,
-            'question_text' => 'What is penetration testing?',
-            'points' => 10,
-        ]);
+        foreach ($questions_2 as $question) {
+            Question::create([
+                'quiz_id' => 2,
+                'question_text' => $question,
+                'points' => 10,
+            ]);
+        }
 
         // Questions for Network Security
-        Question::create([
-            'quiz_id' => 3, // Network Security
-            'question_text' => 'What is a network protocol?',
-            'points' => 10,
-        ]);
+        $questions_3 = [
+            'What is a network protocol?',
+            'What is the function of a router?',
+            'What is a DDoS attack?',
+            'What is the purpose of a VPN?',
+            'What is a firewall?',
+            'What is an IP address?',
+            'What is network segmentation?',
+            'What is the function of a switch?',
+            'What is MAC address filtering?',
+            'What is an intrusion detection system (IDS)?'
+        ];
 
-        Question::create([
-            'quiz_id' => 3,
-            'question_text' => 'What is the function of a router?',
-            'points' => 10,
-        ]);
-
-        Question::create([
-            'quiz_id' => 3,
-            'question_text' => 'What is a DDoS attack?',
-            'points' => 10,
-        ]);
+        foreach ($questions_3 as $question) {
+            Question::create([
+                'quiz_id' => 3,
+                'question_text' => $question,
+                'points' => 10,
+            ]);
+        }
 
         // Questions for Ethical Hacking
-        Question::create([
-            'quiz_id' => 4, // Ethical Hacking
-            'question_text' => 'What is ethical hacking?',
-            'points' => 10,
-        ]);
+        $questions_4 = [
+            'What is ethical hacking?',
+            'What is the difference between black hat and white hat hackers?',
+            'What is social engineering?',
+            'What is a vulnerability assessment?',
+            'What is a penetration test?',
+            'What is the role of a honeypot in cybersecurity?',
+            'What is footprinting in ethical hacking?',
+            'What is the purpose of a phishing attack?',
+            'What is a rootkit?',
+            'What is the principle of least privilege in cybersecurity?'
+        ];
 
-        Question::create([
-            'quiz_id' => 4,
-            'question_text' => 'What is the difference between black hat and white hat hackers?',
-            'points' => 10,
-        ]);
-
-        Question::create([
-            'quiz_id' => 4,
-            'question_text' => 'What is social engineering?',
-            'points' => 10,
-        ]);
+        foreach ($questions_4 as $question) {
+            Question::create([
+                'quiz_id' => 4,
+                'question_text' => $question,
+                'points' => 10,
+            ]);
+        }
     }
 }

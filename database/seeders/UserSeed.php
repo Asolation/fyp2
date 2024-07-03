@@ -20,18 +20,28 @@ class UserSeed extends Seeder
                 'email'          => 'admin@example.com',
                 'password'       => bcrypt('123'),
                 'remember_token' => null,
+                'points'         => 0,
             ],
             [
                 'name'           => 'Sol',
                 'email'          => 'student@example.com',
                 'password'       => bcrypt('12341'),
                 'remember_token' => null,
+                'points'         => 100,
             ],
             [
                 'name'           => 'Solomon',
                 'email'          => 'student2@example.com',
                 'password'       => bcrypt('12341'),
                 'remember_token' => null,
+                'points'         => 300,
+            ],
+            [
+                'name'           => 'Adam',
+                'email'          => 'adam@example.com',
+                'password'       => bcrypt('12341'),
+                'remember_token' => null,
+                'points'         => 500,
             ],
         ];
 

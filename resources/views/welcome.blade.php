@@ -129,7 +129,7 @@
                 <div class="news-list">
                     @foreach ($news as $index => $newsItem)
                         <div class="news-item">
-                            <img src="https://picsum.photos/200/300?random={{ $index }}" alt="{{ $newsItem->title }}">
+                            <img src="{{ $newsItem->image }}" alt="{{ $newsItem->title }}">
                             <h3>{{ $newsItem->title }}</h3>
                             <p>{{ $newsItem->description }}</p>
                             <span class="news-date">Published on: {{ $newsItem->published_at ? \Carbon\Carbon::parse($newsItem->published_at)->format('Y-m-d') : 'N/A' }}</span>
