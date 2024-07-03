@@ -81,7 +81,7 @@ class QuestionsTableSeeder extends Seeder
         $questions_4 = [
             'What is ethical hacking?',
             'What is the difference between black hat and white hat hackers?',
-            'What is social engineering?',
+            'Tailgating is also termed as _________',
             'What is a vulnerability assessment?',
             'What is a penetration test?',
             'What is the role of a honeypot in cybersecurity?',

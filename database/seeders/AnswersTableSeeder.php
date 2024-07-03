@@ -185,11 +185,11 @@ class AnswersTableSeeder extends Seeder
                 ['text' => 'To encrypt data', 'is_correct' => false],
                 ['text' => 'To filter network traffic', 'is_correct' => false],
             ],
-            'What is social engineering?' => [
-                ['text' => 'Manipulating people into divulging confidential information', 'is_correct' => true],
-                ['text' => 'Using software to hack into systems', 'is_correct' => false],
-                ['text' => 'Encrypting data to protect it', 'is_correct' => false],
-                ['text' => 'Testing system vulnerabilities', 'is_correct' => false],
+            'Tailgating is also termed as _________' => [
+                ['text' => 'Piggybacking', 'is_correct' => true],
+                ['text' => 'Phishing', 'is_correct' => false],
+                ['text' => 'Baiting', 'is_correct' => false],
+                ['text' => 'Vishing', 'is_correct' => false],
             ],
             'What is a DDoS attack?' => [
                 ['text' => 'An attack where multiple systems overwhelm a target', 'is_correct' => true],
